@@ -16,12 +16,11 @@ header {
 }
 nav {
   width: 90%;
+  max-width: 1280px;
   margin: 0px auto;
 }
 h1 {
   color: white;
   font-family: 'Open Sans', sans-serif;
 }
-
-
 </style>

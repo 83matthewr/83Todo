@@ -1,10 +1,13 @@
-/* eslint-disable prettier/prettier */
 const todos = [
   {
-    text: "Todo 1",
+    title: "Todo 1",
+    notes: "Just another todo here",
+    completed: false
   },
   {
-    text: "Todo 2",
+    title: "Todo 2",
+    notes: "Just another todo here",
+    completed: false
   },
 ];
 
