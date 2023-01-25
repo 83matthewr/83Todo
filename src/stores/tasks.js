@@ -10,5 +10,9 @@ export const useTaskStore = defineStore("tasks", () => {
     tasks.value.push(newTask);
   }
 
-  return { tasks, addTask }
+  const getTask = (id) => {
+    return tasks.value.find((task) => task.id === id);
+  }
+
+  return { tasks, addTask, getTask }
 })
