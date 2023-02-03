@@ -1,26 +1,12 @@
 <template>
-  <header>
-    <nav>
-      <h1>83Todo</h1>
+  <header class="mb-4">
+    <nav class="w-100 px-10 py-4 bg-primary text-white font-bold shadow-md">
+      <div class="container mx-auto">
+        <router-link to="/">
+          <h1 class="text-3xl">83Todo</h1>
+        </router-link>
+      </div>
     </nav>
   </header>
 </template>
 
-<style scoped>
-header {
-  width: 100%;
-  height: 5rem;
-  background-color: #FF5733;
-  display: flex;
-  align-items: center;
-}
-nav {
-  width: 90%;
-  max-width: 1280px;
-  margin: 0px auto;
-}
-h1 {
-  color: white;
-  font-family: 'Open Sans', sans-serif;
-}
-</style>

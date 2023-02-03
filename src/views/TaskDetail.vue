@@ -13,6 +13,4 @@ import { useTaskStore } from '../stores/tasks';
 const { getTask } = useTaskStore();
 const route = useRoute();
 const task = getTask(route.params.id);
-console.log(task);
-
 </script>
