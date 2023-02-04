@@ -1,7 +1,7 @@
 <template>
   <div class="w-screen">
     <header-nav></header-nav>
-    <div class="container mx-auto">
+    <div class="container mx-auto px-4">
       <router-view></router-view>
     </div>
   </div>
