@@ -24,7 +24,7 @@
 
 <script setup>
 import { useAuthStore } from "../../stores/auth";
-import { signOutUser } from "../../utils/firebase.utils";
+import { signOutUser } from "../../utils/firebase/auth.utils";
 
 const authStore = useAuthStore();
 </script>

@@ -24,7 +24,7 @@
 
 <script setup>
 import { ref } from "vue";
-import { logInUser } from "../utils/firebase.utils";
+import { logInUser } from "../utils/firebase/auth.utils";
 import { useRouter } from "vue-router";
 
 const email = ref('');
