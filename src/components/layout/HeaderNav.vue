@@ -10,6 +10,9 @@
           <router-link v-if="!authStore.user" to="/sign-up">
             <li class="font-normal hover:underline">Sign Up</li>
           </router-link>
+          <router-link v-if="!authStore.user" to="/login">
+            <li class="mx-4 font-normal hover:underline">Log In</li>
+          </router-link>
           <li v-if="authStore.user" @click="signOutUser" class="font-normal hover:underline">
             Sign Out
           </li>
