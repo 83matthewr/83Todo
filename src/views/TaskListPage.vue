@@ -16,11 +16,16 @@
 </template>
 
 <script setup>
-import { useTaskStore } from "../stores/tasks";
+import { db } from "../utils/firebase/db.utils";
+import { collection, query, where } from "firebase/firestore";
 import { useRouter } from "vue-router";
+import { useCollection, useCurrentUser } from "vuefire";
 
 const router = useRouter();
-const { tasks } = useTaskStore();
+const user = useCurrentUser();
+
+const tasksQuery = query(collection(db, "tasks"), where("user_id", "==", user.value.uid));
+const tasks = useCollection(tasksQuery);
 
 function taskClickHandler(id) {
   router.push(`/${id}`);

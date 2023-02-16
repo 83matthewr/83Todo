@@ -4,19 +4,17 @@
     <p>{{ task.notes }}</p>
     <p>Completed: {{ task.completed }}</p>
   </div>
-  <base-button link to="/">
+  <base-button link to="/dashboard">
     Go Back
   </base-button>
 </template>
 
 <script setup>
+import { db } from "../utils/firebase/db.utils";
+import { useDocument } from "vuefire";
 import { useRoute } from "vue-router";
-import { useTaskStore } from '../stores/tasks';
-import { useAuthStore } from "../stores/auth";
-const { getTask } = useTaskStore();
+import { doc } from "firebase/firestore";
 const route = useRoute();
-const task = getTask(route.params.id);
 
-const { currentUser } = useAuthStore();
-console.log(currentUser);
+const task = useDocument(doc(db, "tasks",route.params.id));
 </script>

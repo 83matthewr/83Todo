@@ -1,21 +1,26 @@
-import { firebase } from "./index";
+import { firebaseApp } from "../../firebase";
 import { 
   getFirestore,
   doc,
   getDoc,
-  setDoc
+  setDoc,
 } from "firebase/firestore";
 
-const db = getFirestore(firebase);
+export const db = getFirestore(firebaseApp);
 
 export const createUserDoc = async (user) => {
-  // Check if User Doc already exists
-  const userDocSnap = await getDoc(doc(db, "users", user.uid));
-  if (userDocSnap.exists()) return;
+  try {
+    if (!user) return;
+    // Check if User Doc already exists
+    const userDocSnap = await getDoc(doc(db, "users", user.uid));
+    if (userDocSnap.exists()) return;
 
-  // Create new User Doc
-  await setDoc(doc(db, "users", user.uid), {
-    email: user.email
-  });
+    // Create new User Doc
+    await setDoc(doc(db, "users", user.uid), {
+      email: user.email
+    });
+  } catch(err) {
+    console.log(err);
+    return;
+  }
 }
-
