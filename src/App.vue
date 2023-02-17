@@ -1,5 +1,5 @@
 <template>
-  <div class="w-screen">
+  <div class="w-screen h-screen bg-gray-200">
     <header-nav></header-nav>
     <div class="container mx-auto px-4">
       <router-view></router-view>

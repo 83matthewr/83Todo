@@ -2,8 +2,7 @@ import { createRouter, createWebHistory } from "vue-router";
 import { getCurrentUser } from "vuefire";
 
 import Dashboard from "../views/DashboardPage.vue";
-import SignUp from "../views/SignUpPage.vue";
-import Login from "../views/LoginPage.vue";
+import AuthPage from "../views/AuthPage.vue";
 import Landing from "../views/LandingPage.vue";
 
 const router = createRouter({
@@ -17,12 +16,12 @@ const router = createRouter({
     {
       path: "/sign-up",
       name: "SignUp",
-      component: SignUp,
+      component: AuthPage,
     },
     {
       path: "/login",
       name: "Login",
-      component: Login,
+      component: AuthPage,
     },
     {
       path: "/dashboard/:id?",

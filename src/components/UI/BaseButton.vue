@@ -25,6 +25,6 @@ const props = defineProps({
     default: "button"
   }
 });
-const classes = 'block w-fit mt-4 px-4 py-0.5 bg-primary hover:bg-primary-hover '
-  + 'text-white rounded';
+const classes = 'block bg-primary hover:bg-primary-hover '
+  + 'text-white rounded text-center';
 </script>

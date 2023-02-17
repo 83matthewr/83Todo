@@ -6,6 +6,7 @@ import {
   getDoc,
   addDoc,
   setDoc,
+  Timestamp,
 } from "firebase/firestore";
 
 export const db = getFirestore(firebaseApp);
@@ -34,7 +35,8 @@ export const createNewTaskDoc = async (userId, taskTitle) => {
       title: taskTitle,
       user_id: userId,
       notes: '',
-      completed: false
+      completed: false,
+      date_created: Timestamp.now()
     });
   } catch(err) {
     console.log(err);

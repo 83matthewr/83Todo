@@ -22,13 +22,13 @@ import CreateNewTask from '../components/CreateNewTask.vue';
 import { ref } from 'vue';
 import { useRouter } from "vue-router";
 import { db } from "../utils/firebase/db.utils";
-import { collection, query, where } from "firebase/firestore";
+import { collection, query, where, orderBy } from "firebase/firestore";
 import { useCollection, useCurrentUser } from "vuefire";
 
 const router = useRouter();
 const user = useCurrentUser();
 
-const tasksQuery = query(collection(db, "tasks"), where("user_id", "==", user.value.uid));
+const tasksQuery = query(collection(db, "tasks"), where("user_id", "==", user.value.uid), orderBy("date_created"));
 const tasks = useCollection(tasksQuery);
 const selectedTask = ref(null);
 
