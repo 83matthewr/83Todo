@@ -9,6 +9,7 @@ import "./assets/main.css";
 
 import BaseButton from "./components/UI/BaseButton.vue";
 import BaseInput from "./components/UI/BaseInput.vue";
+import BaseCard from "./components/UI/BaseCard.vue";
 
 const pinia = createPinia();
 const app = createApp(App);
@@ -22,5 +23,6 @@ app.use(VueFire, {
 
 app.component('base-button', BaseButton);
 app.component('base-input', BaseInput);
+app.component('base-card', BaseCard);
 
 app.mount("#app");

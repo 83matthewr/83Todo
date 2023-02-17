@@ -1,8 +1,7 @@
 import { createRouter, createWebHistory } from "vue-router";
 import { getCurrentUser } from "vuefire";
 
-import TaskList from "../views/TaskListPage.vue";
-import TaskDetail from "../views/TaskDetailPage.vue";
+import Dashboard from "../views/DashboardPage.vue";
 import SignUp from "../views/SignUpPage.vue";
 import Login from "../views/LoginPage.vue";
 import Landing from "../views/LandingPage.vue";
@@ -16,14 +15,6 @@ const router = createRouter({
       component: Landing,
     },
     {
-      path: "/:id",
-      name: "TaskDetail",
-      component: TaskDetail,
-      meta: {
-        auth: true,
-      }
-    },
-    {
       path: "/sign-up",
       name: "SignUp",
       component: SignUp,
@@ -34,9 +25,9 @@ const router = createRouter({
       component: Login,
     },
     {
-      path: "/dashboard",
+      path: "/dashboard/:id?",
       name: "Dashboard",
-      component: TaskList,
+      component: Dashboard,
       meta: {
         auth: true,
       }
