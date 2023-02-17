@@ -2,7 +2,9 @@ import { firebaseApp } from "../../firebase";
 import { 
   getFirestore,
   doc,
+  collection,
   getDoc,
+  addDoc,
   setDoc,
 } from "firebase/firestore";
 
@@ -22,5 +24,19 @@ export const createUserDoc = async (user) => {
   } catch(err) {
     console.log(err);
     return;
+  }
+}
+
+export const createNewTaskDoc = async (userId, taskTitle) => {
+  try {
+    if (!userId) return;
+    await addDoc(collection(db, "tasks"), {
+      title: taskTitle,
+      user_id: userId,
+      notes: '',
+      completed: false
+    });
+  } catch(err) {
+    console.log(err);
   }
 }

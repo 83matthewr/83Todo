@@ -1,8 +1,8 @@
 <template>
   <div>
-    <label :for="id" class="block text-xs">{{ props.name }}</label>
+    <label :for="id" class="block text-xs w-full">{{ props.name }}</label>
     <input 
-      class="border-2 mt-0.5 mb-1 px-2 py-0.5 rounded text-sm
+      class="w-full border-2 mt-0.5 mb-1 px-2 py-0.5 rounded text-sm
       focus-visible:ring-2 focus-visible:outline-none"
       :type="props.type"
       :value="modelValue"

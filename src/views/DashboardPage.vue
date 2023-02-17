@@ -1,10 +1,12 @@
 <template>
   <div class="container flex flex-col sm:flex-row justify-center">
     <base-card title="Todo List" class="grow">
-      <TaskListPage :tasks="tasks" :onClick="taskClickHandler"/>
+      <task-list-card :tasks="tasks" :onClick="taskClickHandler"/>
+      <hr/>
+      <create-new-task />
     </base-card>
     <base-card title="Todo Details" class="grow">
-      <TaskDetailPage v-if="selectedTask" :task="selectedTask"/>
+      <task-detail-card v-if="selectedTask" :task="selectedTask"/>
       <div v-if="!selectedTask">
         Select a Task
       </div>
@@ -13,8 +15,9 @@
 </template>
 
 <script setup>
-import TaskListPage from '../components/TaskListPage.vue';
-import TaskDetailPage from '../components/TaskDetailPage.vue';
+import TaskListCard from '../components/TaskListCard.vue';
+import TaskDetailCard from '../components/TaskDetailCard.vue';
+import CreateNewTask from '../components/CreateNewTask.vue';
 
 import { ref } from 'vue';
 import { useRouter } from "vue-router";
