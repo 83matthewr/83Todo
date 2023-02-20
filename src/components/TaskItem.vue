@@ -4,6 +4,7 @@
           text-white shadow-sm hover:shadow-lg flex flex-row justify-between"
   >
     <input 
+      :checked="props.task.completed"
       @click="e => taskCheckedHandler(e, props.task)"
       type="checkbox" 
       :id="props.task.id"

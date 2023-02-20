@@ -6,6 +6,7 @@ import {
   getDoc,
   addDoc,
   setDoc,
+  updateDoc,
   deleteDoc,
   Timestamp,
 } from "firebase/firestore";
@@ -45,10 +46,19 @@ export const createNewTaskDoc = async (userId, taskTitle) => {
 }
 
 export const updateTaskStatus = async (taskId, status) => {
-  console.log("Task: ", taskId);
-  console.log("Task Completed?", status);
+  try {
+    await updateDoc(doc(db, 'tasks', taskId), {
+      completed: status
+    });
+  } catch(err) {
+    console.log(err);
+  }
 }
 
 export const deleteTask = async (taskId) => {
-  await deleteDoc(doc(db, 'tasks', taskId));
+  try {
+    await deleteDoc(doc(db, 'tasks', taskId));
+  } catch(err) {
+    console.log(err);
+  }
 }
