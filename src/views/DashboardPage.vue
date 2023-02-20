@@ -1,7 +1,7 @@
 <template>
   <div class="container flex flex-col sm:flex-row justify-center">
     <base-card title="Todo List" class="grow">
-      <task-list-card :tasks="tasks" :onClick="taskClickHandler"/>
+      <task-list-card :tasks="tasks"/>
       <hr/>
       <create-new-task />
     </base-card>
@@ -19,21 +19,20 @@ import TaskListCard from '../components/TaskListCard.vue';
 import TaskDetailCard from '../components/TaskDetailCard.vue';
 import CreateNewTask from '../components/CreateNewTask.vue';
 
-import { ref } from 'vue';
-import { useRouter } from "vue-router";
+import { ref, provide } from 'vue';
 import { db } from "../utils/firebase/db.utils";
 import { collection, query, where, orderBy } from "firebase/firestore";
 import { useCollection, useCurrentUser } from "vuefire";
 
-const router = useRouter();
 const user = useCurrentUser();
 
 const tasksQuery = query(collection(db, "tasks"), where("user_id", "==", user.value.uid), orderBy("date_created"));
 const tasks = useCollection(tasksQuery);
 const selectedTask = ref(null);
 
-const taskClickHandler = (task) => {
-  router.push(`/dashboard/${task.id}`);
+const setSelectedTask = (task) => {
   selectedTask.value = task;
 }
+
+provide('setSelectedTask', setSelectedTask);
 </script>

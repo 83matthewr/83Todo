@@ -6,7 +6,7 @@
           <h1 class="text-3xl">83Todo</h1>
         </router-link>
         <ul class="flex align-center justify-center">
-          <li class="mx-4" v-if="user">{{ user.email }}</li>
+          <li class="mx-4" v-if="user">{{ userName }}</li>
           <router-link v-if="!user" to="/sign-up">
             <li class="font-normal hover:underline">Sign Up</li>
           </router-link>
@@ -35,6 +35,12 @@ const logoLink = computed(() => {
   if (user.value) return "/dashboard";
   else return "/";
 });
+const userName = computed(() => {
+  if (user.value) {
+    return user.value.email.split('@')[0];
+  }
+  else return '';
+})
 
 const handleSignOut = () => {
   signOutUser();

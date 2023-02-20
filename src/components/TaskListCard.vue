@@ -1,19 +1,16 @@
 <template>
   <section class="my-4">
     <ul>
-      <li 
+      <task-item
         v-for="task in props.tasks" 
-        :key="task.title" 
-        @click="onClick(task)"
-        class="rounded px-2 py-1 my-2 bg-primary hover:bg-primary-hover 
-              text-white shadow-sm hover:shadow-lg cursor-pointer"
-      >
-        {{ task.title }}
-      </li>
+        :key="task.title"
+        :task="task"
+      />
     </ul>
   </section>
 </template>
 
 <script setup>
-const props = defineProps(['tasks', 'onClick']);
+import TaskItem from './TaskItem.vue';
+const props = defineProps(['tasks']);
 </script>
