@@ -23,7 +23,7 @@
         <base-button type="submit" class="mt-4 sm:mt-4 sm:mx-4 py-1 px-10">
           Submit
         </base-button>
-        <base-button link to="/" class="mt-2 sm:mt-4 sm:mx-4 py-1 px-10">
+        <base-button link to="/" class="mt-2 sm:mt-4 sm:mx-4 py-1 px-10" buttonStyle="reversed">
           Go Back
         </base-button>
       </div>

@@ -1,21 +1,25 @@
 <template>
   <header class="mb-4">
-    <nav class="w-100 px-10 py-4 bg-primary text-white font-bold shadow-md">
+    <nav class="w-100 px-10 py-4 bg-white text-primary font-bold shadow-md">
       <div class="container mx-auto flex justify-between items-baseline">
         <router-link :to="logoLink">
           <h1 class="text-3xl">83Todo</h1>
         </router-link>
         <ul class="flex align-center justify-center">
-          <li class="mx-4" v-if="user">{{ userName }}</li>
-          <router-link v-if="!user" to="/sign-up">
-            <li class="font-normal hover:underline">Sign Up</li>
-          </router-link>
-          <router-link v-if="!user" to="/login">
-            <li class="mx-4 font-normal hover:underline">Log In</li>
-          </router-link>
-          <li v-if="user" @click="handleSignOut" class="font-normal hover:underline">
+          <li class="mx-4 py-1" v-if="user">{{ userName }}</li>
+          <base-button v-if="!user" link to="/sign-up" class="mx-2 py-1 px-2">
+            Sign Up
+          </base-button>
+          <base-button v-if="!user" link to="/login" class="mx-2 py-1 px-2" buttonStyle="reversed">
+            Log In
+          </base-button>
+          <base-button 
+            v-if="user" 
+            @click="handleSignOut" 
+            class="font-normal py-1 px-2"
+          >
             Sign Out
-          </li>
+          </base-button>
         </ul>
       </div>
     </nav>

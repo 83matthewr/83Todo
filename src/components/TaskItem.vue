@@ -1,14 +1,14 @@
 <template>
   <li 
-    class="rounded px-2 py-1 my-2 bg-primary hover:bg-primary-hover 
-          text-white shadow-sm hover:shadow-lg flex flex-row justify-between"
+    class="rounded px-2 py-1 my-2 bg-white border-2 border-primary 
+          text-primary shadow-sm hover:shadow-lg flex flex-row justify-between"
   >
     <input 
       :checked="props.task.completed"
       @click="e => taskCheckedHandler(e, props.task)"
       type="checkbox" 
       :id="props.task.id"
-      class="mr-2 peer cursor-pointer"
+      class="mr-2 peer cursor-pointer accent-primary"
     />
     <span
       @click="taskClickHandler(props.task)"
@@ -17,7 +17,7 @@
       {{ props.task.title }}
     </span>
     <span 
-      class="material-symbols-outlined text-[20px] leading-6 cursor-pointer hover:text-black"
+      class="material-symbols-outlined text-[20px] leading-6 cursor-pointer text-gray-400 hover:text-primary"
       @click="deleteClickHandler(props.task.id)"
     >
       close
