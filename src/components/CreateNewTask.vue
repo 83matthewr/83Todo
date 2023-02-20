@@ -9,7 +9,7 @@
         class="grow mr-8"
         :error="error"
       />
-      <base-button type='submit' class="h-8 mt-2 sm:mt-5 py-0 px-2 text-xs font-semibold" buttonStyle="reversed">
+      <base-button type='submit' class="h-8 mt-2 sm:mt-5 py-0 px-2 text-sm font-semibold" buttonStyle="reversed">
         Add Task
       </base-button>
     </div>

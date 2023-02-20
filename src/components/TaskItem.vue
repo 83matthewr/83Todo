@@ -27,17 +27,14 @@
 
 <script setup>
 import { useRouter, useRoute } from "vue-router";
-import { inject } from "vue";
 import { updateTaskStatus, deleteTask } from "../utils/firebase/db.utils";
 
 const router = useRouter();
 const route = useRoute();
 const props = defineProps(['task']);
-const setSelectedTask = inject('setSelectedTask');
 
 const taskClickHandler = (task) => {
   router.push(`/dashboard/${task.id}`);
-  setSelectedTask(task);
 }
 
 const taskCheckedHandler = (e, task) => {
@@ -47,7 +44,6 @@ const taskCheckedHandler = (e, task) => {
 const deleteClickHandler = (id) => {
   deleteTask(id);
   if (route.params.id === id) {
-    setSelectedTask(null);
     router.push("/dashboard");
   }
 }
