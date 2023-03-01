@@ -2,7 +2,7 @@
   <form @submit.prevent="handleSubmit()" novalidate>
     <base-card class="max-w-2xl mx-auto">
       <h2 class="font-bold text-xl mb-2">{{ pageTitle }}</h2>
-      <router-link :to="subtitleLink">
+      <router-link id="subtitle" :to="subtitleLink">
         <p class="text-xs text-blue-700 mb-4">{{ subtitle }}</p>
       </router-link>
       <base-input

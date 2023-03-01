@@ -1,10 +1,10 @@
 <template>
-  <button v-if="!props.link" :class="classes" :type="props.type">
-    <slot></slot>
-  </button>
-  <router-link v-else :to="props.to" :class="classes">
+  <router-link v-if="props.link" :to="props.to" :class="classes">
     <slot></slot>
   </router-link>
+  <button v-else :class="classes">
+    <slot></slot>
+  </button>
 </template>
 
 <script setup>
@@ -20,11 +20,6 @@ const props = defineProps({
     type: String,
     required: false,
     default: '/'
-  },
-  type: {
-    type: String,
-    required: false,
-    default: "button"
   },
   buttonStyle: {
     type: String,

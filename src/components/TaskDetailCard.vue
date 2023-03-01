@@ -1,5 +1,5 @@
 <template>
-  <div v-if="props.task">
+  <div data-testid="task-detail-card" v-if="props.task">
     <div class="flex flex-row justify-between mb-4">
       <h2 class="text-3xl font-bold">{{ props.task.title }}</h2>
       <span class="material-symbols-outlined pr-2 cursor-pointer hover:text-primary">edit</span>
@@ -15,7 +15,7 @@
         <span class="material-symbols-outlined text-[40px]">notifications</span>
         <p>Add Reminder</p>
       </base-button>
-      <base-button buttonStyle="reversed" class="p-2 mx-4 w-40 text-red-500 border-red-500 hover:bg-red-500">
+      <base-button buttonStyle="reversed" class="p-2 mx-4 w-40">
         <span class="material-symbols-outlined text-[40px]">delete</span>
         <p>Delete</p>
       </base-button>

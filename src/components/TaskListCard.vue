@@ -1,5 +1,5 @@
 <template>
-  <section class="my-4">
+  <section data-testid="task-list" class="my-4">
     <ul>
       <task-item
         v-for="task in props.tasks" 

@@ -1,5 +1,5 @@
 <template>
-  <form @submit.prevent="addTaskClick">
+  <form data-testid="create-new-task" @submit.prevent="addTaskClick">
     <div class="mt-4 flex flex-col sm:flex-row align-baseline">
       <base-input 
         v-model="newTask" 
@@ -9,7 +9,7 @@
         class="grow mr-8"
         :error="error"
       />
-      <base-button type='submit' class="h-8 mt-2 sm:mt-5 py-0 px-2 text-sm font-semibold" buttonStyle="reversed">
+      <base-button data-testid="add-task-button" type='submit' class="h-8 mt-2 sm:mt-5 py-0 px-2 text-sm font-semibold" buttonStyle="reversed">
         Add Task
       </base-button>
     </div>

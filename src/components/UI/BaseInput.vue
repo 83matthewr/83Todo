@@ -7,9 +7,10 @@
       :class="borderColor"
       :type="props.type"
       :value="modelValue"
+      :id="id"
       @input="$emit('update:modelValue', $event.target.value)"
     />
-    <div v-if="props.error" class="border-2 border-red-600 bg-red-100 rounded mb-2 px-2 py-1">
+    <div v-if="props.error" data-testid="input-error" class="border-2 border-red-600 bg-red-100 rounded mb-2 px-2 py-1">
       <p class="text-xs text-red-600">{{ props.error }}</p>
     </div>
   </div>

@@ -31,6 +31,11 @@ const router = createRouter({
         auth: true,
       }
     },
+    { 
+      path: '/:pathMatch(.*)*', 
+      name: 'NotFound', 
+      component: Landing 
+    },
   ],
 });
 

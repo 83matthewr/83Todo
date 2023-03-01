@@ -9,6 +9,9 @@ import {
   updateDoc,
   deleteDoc,
   Timestamp,
+  where,
+  query,
+  orderBy
 } from "firebase/firestore";
 
 export const db = getFirestore(firebaseApp);
@@ -33,6 +36,7 @@ export const createUserDoc = async (user) => {
 export const createNewTaskDoc = async (userId, taskTitle) => {
   try {
     if (!userId) return;
+
     await addDoc(collection(db, "tasks"), {
       title: taskTitle,
       user_id: userId,
@@ -61,4 +65,12 @@ export const deleteTask = async (taskId) => {
   } catch(err) {
     console.log(err);
   }
+}
+
+export const getTaskSource = (taskId) => {
+  return doc(collection(db, 'tasks'), taskId);
+}
+
+export const getTasksQuery = (userId) => {
+  return query(collection(db, "tasks"), where("user_id", "==", userId), orderBy("date_created"));
 }

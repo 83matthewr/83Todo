@@ -2,8 +2,10 @@
   <li 
     class="rounded px-2 py-1 my-2 bg-white border-2 border-primary 
           text-primary shadow-sm hover:shadow-lg flex flex-row justify-between"
+    data-testid="task-item"
   >
     <input 
+      data-testid="task-input"
       :checked="props.task.completed"
       @click="e => taskCheckedHandler(e, props.task)"
       type="checkbox" 
@@ -17,6 +19,7 @@
       {{ props.task.title }}
     </span>
     <span 
+      data-testid="task-delete"
       class="material-symbols-outlined text-[20px] leading-6 cursor-pointer text-gray-400 hover:text-primary"
       @click="deleteClickHandler(props.task.id)"
     >
